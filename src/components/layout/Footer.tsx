@@ -117,7 +117,7 @@ export const Footer = ({ data }: FooterProps) => {
       {/* Large Typography Image */}
       <div className="w-full flex justify-center mt-6 relative z-0">
         <Image
-          src="/footerLogo.png"
+          src="/assets/footerLogo.png"
           alt="BellaBona"
           width={1920}
           height={400}
