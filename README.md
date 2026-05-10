@@ -71,3 +71,9 @@ A few areas that could be expanded further in a larger production setup:
 ```bash
 npm install
 npm run dev
+
+---
+
+## Note
+
+This repository was created as part of a technical evaluation/case study and is shared for review purposes only. Reuse, redistribution, or production deployment without permission is not permitted.
