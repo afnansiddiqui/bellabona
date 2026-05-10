@@ -1,34 +1,73 @@
 # BellaBona Homepage Build
 
-This repository contains the Next.js 14+ implementation of the BellaBona homepage, fully integrated with Sanity CMS, following the provided Figma design and technical requirements.
+This repository contains the homepage implementation built with Next.js 14 (App Router), Sanity CMS, Tailwind CSS, and deployed on Vercel.
 
-## Technical Decisions & Architecture
+The focus of this implementation was mainly around rendering strategy, SEO structure, performance, and keeping the overall architecture simple and scalable.
 
-### Rendering Strategy & Performance
-*   **ISR (Incremental Static Regeneration)**: Used Next.js `fetch` with `revalidate` on the server-side (`src/app/(site)/page.tsx`) to pull content from Sanity. There are zero client-side `useEffect` hooks fetching data, ensuring full server-side rendering for optimal Core Web Vitals (CWV), especially LCP and SEO.
-*   **Performance Optimization**: 
-    *   The hero image uses `next/image` with `priority={true}` to ensure it loads immediately and avoids layout shifts.
-    *   Added `sizes="(max-width: 768px) 100vw, 50vw"` attribute to optimize the image payload size depending on the device viewport.
-    *   Lightweight CSS transitions (Tailwind variants) were used instead of heavy JavaScript animation libraries (like GSAP) to keep the main thread unblocked and prioritize LCP.
+---
 
-### Sanity CMS Integration
-*   **Editor-Friendly Schema**: Migrated from a single massive document to a highly structured **Singleton Document** pattern. 
-    *   Instead of a cluttered single page, editors see a clean Sanity Studio sidebar with individual documents for each section (e.g., SEO, Hero, Meals, Testimonials).
-    *   This prevents accidental data loss and makes it non-intimidating for non-developers to edit specific areas confidently.
-*   **Fallback Resilience**: Created robust field-level fallbacks in code so that if a content editor accidentally leaves a field blank or deletes an image, the page degrades gracefully to default values rather than throwing a runtime crash.
+## Technical Decisions
 
-### Technical SEO
-*   **Structured Data (JSON-LD)**: Injected `Organization` schema directly into the `RootLayout`.
-*   **Dynamic Metadata**: Configured `generateMetadata` in `layout.tsx` to read dynamic `pageTitle` and `metaDescription` fields directly from the Sanity SEO settings document.
-*   **Hreflang & Canonical**: Integrated into the Next.js `alternates` metadata object, anticipating a potential DE/EN bilingual setup (`hreflang: 'de'`).
+### Rendering Strategy
 
-## Trade-offs & What I'd Do Differently
-*   **Portable Text vs Strings**: For this implementation, I utilized `string` and `text` fields rather than a full Portable Text setup for the sake of speed and simplicity, given the strict layout structures in the design. If the project scaled, migrating paragraphs to Portable Text would allow editors to inject bold tags or links natively.
-*   **Animation**: Stick to lightweight Tailwind interactions, but if the client wanted more elaborate scroll-reveal animations, I would implement `framer-motion` dynamically imported so it wouldn't impact initial page load metrics.
-*   **Type Safety**: We used custom TypeScript interfaces that map exactly to Sanity schemas. Moving forward, generating types automatically via `sanity typegen` would make the code strictly aligned with CMS changes.
+The homepage content is fetched server-side from Sanity using ISR (`revalidate`) instead of client-side fetching with `useEffect`.
+
+This keeps the initial page load fast, improves SEO, and avoids unnecessary client-side rendering for above-the-fold content.
+
+---
+
+### Performance Considerations
+
+- The hero image uses `next/image` with `priority={true}` for better LCP performance.
+- Explicit image sizing and responsive `sizes` attributes were added to reduce unnecessary payload on smaller screens.
+- Animations were kept lightweight using Tailwind/CSS transitions instead of heavy animation libraries.
+
+---
+
+## Sanity CMS Structure
+
+The homepage content is fully editable through Sanity.
+
+Editable sections include:
+- Navigation
+- Hero section
+- CTA content
+- Features
+- Footer
+- SEO fields
+
+SEO-related fields are separated from the main content structure to keep the schema cleaner and easier to manage.
+
+Fallback values were also added where needed to avoid runtime issues if certain fields are left empty.
+
+---
+
+## Technical SEO
+
+The project includes:
+- Dynamic metadata from Sanity
+- Open Graph metadata
+- Canonical tags
+- `hreflang` structure for future multilingual support
+- Organization JSON-LD schema
+
+The goal was to keep the page fully indexable and SEO-friendly by default.
+
+---
+
+## Trade-offs
+
+For this implementation, I kept the setup intentionally lightweight and avoided over-engineering.
+
+A few areas that could be expanded further in a larger production setup:
+- Portable Text for richer editor control
+- Automated type generation from Sanity schemas
+- More advanced animation systems if needed later
+
+---
 
 ## Local Setup
+
 ```bash
 npm install
 npm run dev
-```
