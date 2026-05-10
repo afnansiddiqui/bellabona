@@ -1,0 +1,25 @@
+import { SanityContactData } from '@/types/Sanity/contact'
+
+export const CONTACT_FALLBACK: SanityContactData = {
+  cardHeading: "Got Questions?\nLet's Talk Lunch.",
+  cardSubheading: "Straightforward answers on pricing, setup and whether Bella&Bona fits your office - we're here to help.",
+  profileName: 'Sara Dorofeev',
+  profileEmail: 'sara@bellabona.com',
+  profilePhone: '+49 151 2960 5077',
+  profileImage: '/assets/sara-profile.png',
+  formHeading: 'Schedule an appointment now',
+  nameLabel: 'Name*',
+  namePlaceholder: 'Your Name',
+  companyLabel: 'Company Name',
+  companyPlaceholder: 'Company Name',
+  emailLabel: 'Email*',
+  emailPlaceholder: 'Email',
+  phoneLabel: 'Phone Number*',
+  phonePlaceholder: 'Your Phone Number',
+  companySizeLabel: 'Company Size*',
+  companySizePlaceholder: 'Please select',
+  commentsLabel: 'Additional Comments',
+  commentsPlaceholder: 'Your Comments',
+  formSubmitLabel: 'Request a free quote',
+  consentText: 'I agree to be contacted by Bella&Bona regarding this request.',
+}

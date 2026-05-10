@@ -1,0 +1,30 @@
+import { defineField, defineType } from 'sanity'
+
+export const contactSectionType = defineType({
+  name: 'contactSection',
+  title: 'Contact Section',
+  type: 'object',
+  fields: [
+    defineField({ name: 'cardHeading', title: 'Card Heading', type: 'text' }),
+    defineField({ name: 'cardSubheading', title: 'Card Subheading', type: 'text' }),
+    defineField({ name: 'profileName', title: 'Profile Name', type: 'string' }),
+    defineField({ name: 'profileEmail', title: 'Profile Email', type: 'string' }),
+    defineField({ name: 'profilePhone', title: 'Profile Phone', type: 'string' }),
+    defineField({ name: 'profileImage', title: 'Profile Image', type: 'image', options: { hotspot: true } }),
+    defineField({ name: 'formHeading', title: 'Form Heading', type: 'string' }),
+    defineField({ name: 'nameLabel', title: 'Name Label', type: 'string' }),
+    defineField({ name: 'namePlaceholder', title: 'Name Placeholder', type: 'string' }),
+    defineField({ name: 'companyLabel', title: 'Company Label', type: 'string' }),
+    defineField({ name: 'companyPlaceholder', title: 'Company Placeholder', type: 'string' }),
+    defineField({ name: 'emailLabel', title: 'Email Label', type: 'string' }),
+    defineField({ name: 'emailPlaceholder', title: 'Email Placeholder', type: 'string' }),
+    defineField({ name: 'phoneLabel', title: 'Phone Label', type: 'string' }),
+    defineField({ name: 'phonePlaceholder', title: 'Phone Placeholder', type: 'string' }),
+    defineField({ name: 'companySizeLabel', title: 'Company Size Label', type: 'string' }),
+    defineField({ name: 'companySizePlaceholder', title: 'Company Size Placeholder', type: 'string' }),
+    defineField({ name: 'commentsLabel', title: 'Comments Label', type: 'string' }),
+    defineField({ name: 'commentsPlaceholder', title: 'Comments Placeholder', type: 'string' }),
+    defineField({ name: 'formSubmitLabel', title: 'Form Submit Button Label', type: 'string' }),
+    defineField({ name: 'consentText', title: 'Consent Text', type: 'text' }),
+  ],
+})
