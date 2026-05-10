@@ -28,6 +28,7 @@ export const Footer = ({ data }: FooterProps) => {
     policyHeading:    data?.policyHeading    ?? FOOTER_FALLBACK.policyHeading,
     policyLinks:      data?.policyLinks?.length ? data.policyLinks : FOOTER_FALLBACK.policyLinks,
     copyrightText:    data?.copyrightText    ?? FOOTER_FALLBACK.copyrightText,
+    footerImage:      data?.footerImage      ?? FOOTER_FALLBACK.footerImage,
   }
 
   return (
@@ -117,7 +118,7 @@ export const Footer = ({ data }: FooterProps) => {
       {/* Large Typography Image */}
       <div className="w-full flex justify-center mt-6 relative z-0">
         <Image
-          src="/footer-logo.png"
+          src={d.footerImage || '/assets/footerLogo.png'}
           alt="BellaBona"
           width={1920}
           height={400}

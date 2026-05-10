@@ -51,6 +51,7 @@ export const heroSingleton = defineType({
     { name: 'ctaLabel', title: 'CTA Label', type: 'string' },
     { name: 'ctaHref', title: 'CTA Href', type: 'string' },
     { name: 'heroImage', title: 'Hero Image', type: 'image', options: { hotspot: true } },
+    { name: 'heroImageAlt', title: 'Hero Image Alt Text', type: 'string' },
     { name: 'appStoreHref', title: 'App Store Link', type: 'string' },
     { name: 'googlePlayHref', title: 'Google Play Link', type: 'string' },
     { name: 'googleRatingScore', title: 'Google Rating Score', type: 'string' },
@@ -335,5 +336,6 @@ export const footerSingleton = defineType({
       of: [{ type: 'object', fields: [{ name: 'label', type: 'string' }, { name: 'href', type: 'string' }] }],
     },
     { name: 'copyrightText', title: 'Copyright Text', type: 'string' },
+    { name: 'footerImage', title: 'Footer Image', type: 'image', options: { hotspot: true } },
   ],
 })

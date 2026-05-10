@@ -14,4 +14,5 @@ export interface SanityFooterData {
   policyHeading: string;
   policyLinks: SanityFooterLink[];
   copyrightText: string;
+  footerImage?: string;
 }

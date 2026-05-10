@@ -26,4 +26,5 @@ export const FOOTER_FALLBACK: SanityFooterData = {
     { label: 'cookies', href: '#' },
   ],
   copyrightText: 'Bella&Bona Copyright © 2025. Mit Liebe gestaltet.',
+  footerImage: '/assets/footerLogo.png',
 }

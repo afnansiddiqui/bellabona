@@ -5,6 +5,7 @@ export interface SanityHeroData {
   ctaLabel: string;
   ctaHref: string;
   heroImage: string;
+  heroImageAlt?: string;
   appStoreHref: string;
   googlePlayHref: string;
   googleRatingScore?: string;

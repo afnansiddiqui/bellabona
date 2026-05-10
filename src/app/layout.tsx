@@ -17,8 +17,6 @@ export async function generateMetadata(): Promise<Metadata> {
   });
 }
 
-import { SmoothScroll } from '@/components/layout/SmoothScroll';
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -27,7 +25,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col font-sans">
-        <SmoothScroll>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -45,7 +42,6 @@ export default function RootLayout({
           }}
         />
         {children}
-      </SmoothScroll>
       </body>
     </html>
   );

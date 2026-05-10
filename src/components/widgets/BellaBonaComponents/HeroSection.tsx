@@ -17,6 +17,7 @@ export const HeroSection = ({ data }: HeroSectionProps) => {
     ctaLabel:           data?.ctaLabel           ?? HERO_FALLBACK.ctaLabel,
     ctaHref:            data?.ctaHref            ?? HERO_FALLBACK.ctaHref,
     heroImage:          data?.heroImage          ?? HERO_FALLBACK.heroImage,
+    heroImageAlt:       data?.heroImageAlt       ?? HERO_FALLBACK.heroImageAlt,
     appStoreHref:       data?.appStoreHref       ?? HERO_FALLBACK.appStoreHref,
     googlePlayHref:     data?.googlePlayHref     ?? HERO_FALLBACK.googlePlayHref,
     googleRatingScore:  data?.googleRatingScore  ?? HERO_FALLBACK.googleRatingScore,
@@ -57,7 +58,7 @@ export const HeroSection = ({ data }: HeroSectionProps) => {
           <div className="relative h-[380px] w-full overflow-hidden rounded-[32px] md:h-auto md:min-h-[500px] lg:min-h-[600px]">
             <Image
               src={d.heroImage}
-              alt="Team enjoying lunch"
+              alt={d.heroImageAlt || "Team enjoying lunch"}
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               className="origin-top-left scale-[1.15] object-cover md:origin-center md:scale-100 md:object-bottom"

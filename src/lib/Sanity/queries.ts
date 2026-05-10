@@ -27,6 +27,7 @@ export const heroQuery = groq`
     ctaLabel,
     ctaHref,
     "heroImage": heroImage.asset->url,
+    heroImageAlt,
     appStoreHref,
     googlePlayHref,
     googleRatingScore,
@@ -182,6 +183,7 @@ export const footerQuery = groq`
     discoverLinks[] { label, href },
     policyHeading,
     policyLinks[] { label, href },
-    copyrightText
+    copyrightText,
+    "footerImage": footerImage.asset->url
   }
 `
